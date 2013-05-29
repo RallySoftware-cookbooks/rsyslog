@@ -1,5 +1,7 @@
 # rsyslog cookbook
 
+[![Build Status](https://travis-ci.org/RallySoftware-cookbooks/rsyslog.png)](https://travis-ci.org/RallySoftware-cookbooks/rsyslog)
+
 # Requirements
 Availability of rsyslog package via operating system package management system
 
