@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-#  config.vm.network :public_network
+  config.vm.network :public_network
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -68,27 +68,10 @@ Vagrant.configure("2") do |config|
   # An array of symbols representing groups of cookbook described in the Vagrantfile
   # to skip installing and copying to Vagrant's shelf.
   # config.berkshelf.except = []
-
   config.vm.provision :chef_solo do |chef|
-    chef.json = {
-      :mysql => {
-        :server_root_password => 'rootpass',
-        :server_debian_password => 'debpass',
-        :server_repl_password => 'replpass'
-      },
-#
-# Uncomment this for use with the rsyslog::forward cookbook
-#
-#      :rsyslog => {
-#        :server_name => '1.2.3.4'
-#      }
-    }
-
+    chef.log_level = :debug
     chef.run_list = [
-        "recipe[minitest-handler::default]",
-        "recipe[rsyslog::default]"
-#        "recipe[rsyslog::forward]"
-#        "recipe[rsyslog::server]"
+      'recipe[rsyslog::default]'
     ]
   end
 end

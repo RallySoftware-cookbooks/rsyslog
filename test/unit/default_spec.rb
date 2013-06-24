@@ -1,8 +1,10 @@
-require 'chefspec'
+require_relative 'spec_helper'
 
 describe 'rsyslog::default' do
   before(:all) do
-    @chef_run = ChefSpec::ChefRunner.new.converge 'rsyslog::default'
+    @chef_run = ChefSpec::ChefRunner.new
+    @chef_run.node.set['rsyslog']['server_name'] = '1.2.3.4'
+    @chef_run.converge 'rsyslog::default'
   end
 
   it 'should install rsyslog package' do
