@@ -5,7 +5,7 @@ describe 'rsyslog::server' do
 
   before (:all) do
     @chef_run = ChefSpec::ChefRunner.new
-    @chef_run.node.set['rsyslog']['server_name'] = "1.2.3.4"
+    @chef_run.node.set['rsyslog']['server_name'] = '1.2.3.4'
     @chef_run.converge 'rsyslog::server'
   end
 
