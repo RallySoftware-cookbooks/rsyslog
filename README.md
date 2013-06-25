@@ -23,4 +23,4 @@ rsyslog::server
 
 # Author
 
-Author:: Rally Software Development Corp. (<eklein@rallydev.com>)
+Author:: Rally Software Development Corp. (<rallysoftware-cookbooks@rallydev.com>)
