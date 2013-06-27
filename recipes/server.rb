@@ -23,10 +23,10 @@
 
 include_recipe 'rsyslog::default'
 
-template "/etc/sysconfig/rsyslog" do
-  source "rsyslog.erb"
-  owner "root"
-  group "root"
+template '/etc/sysconfig/rsyslog' do
+  source 'rsyslog.erb'
+  owner 'root'
+  group 'root'
   mode 00644
-  notifies :restart, "service[rsyslog]"
+  notifies :restart, 'service[rsyslog]'
 end
