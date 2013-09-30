@@ -15,9 +15,9 @@ See `attributes/default.rb` for default values
 * `node['rsyslog']['server_port']` = remote syslog server port
 
 ## Recipes
-rsyslog::default
-rsyslog::forward
-rsyslog::server
+* rsyslog::default
+* rsyslog::forward
+* rsyslog::server
 
 ## License
 Copyright (c) Rally Software Development Corp. 2013. 
