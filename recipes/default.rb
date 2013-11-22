@@ -30,7 +30,7 @@ directory '/etc/rsyslog.d' do
   action :create
   owner 'root'
   group 'root'
-  mode 0755
+  mode '0755'
 end
 
 # stop syslog service if we're running centos/oel/rhel 5.x

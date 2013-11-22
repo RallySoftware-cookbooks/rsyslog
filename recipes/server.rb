@@ -27,6 +27,6 @@ template '/etc/sysconfig/rsyslog' do
   source 'rsyslog.erb'
   owner 'root'
   group 'root'
-  mode 00644
+  mode '0644'
   notifies :restart, 'service[rsyslog]'
 end

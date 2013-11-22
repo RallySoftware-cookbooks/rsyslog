@@ -33,7 +33,7 @@ else
     source '20-forward.conf.erb'
     owner 'root'
     group 'root'
-    mode 0644
+    mode '0644'
     variables(
       :server_name => node['rsyslog']['server_name'],
       :server_port => node['rsyslog']['server_port']
