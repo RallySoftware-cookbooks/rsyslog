@@ -1,5 +1,6 @@
 .vagrant
 Berksfile.lock
+Gemfile.lock
 *~
 *#
 .#*
@@ -15,3 +16,4 @@ bin/*
 .kitchen/
 vendor/
 test/.chef
+test-reports/*

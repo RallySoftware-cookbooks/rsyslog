@@ -27,7 +27,7 @@
 include_recipe 'rsyslog::default'
 
 if node['rsyslog']['server_name'].nil?
-  raise 'Unable to determine rsyslog server name, please add proper attributes'
+  raise(RuntimeError, 'Unable to determine rsyslog server name, please add proper attributes')
 else
   template '/etc/rsyslog.d/20-forward.conf' do
     source '20-forward.conf.erb'
