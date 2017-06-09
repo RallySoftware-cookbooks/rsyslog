@@ -3,12 +3,12 @@ require_relative 'spec_helper'
 describe 'rsyslog::default' do
   let(:disable_syslog) { false }
   subject(:chef_run) do
-    ChefSpec::Runner.new do |node|
+    ChefSpec::SoloRunner.new(platform: 'centos', version: '6.8') do |node|
       if disable_syslog
-        node.automatic_attrs[:platform_family] = 'rhel'
-        node.automatic_attrs[:version] = '5.8'
+        node.automatic['platform_family'] = 'rhel'
+        node.automatic['version'] = '5.8'
       end
-      node.set[:rsyslog][:server_name] = '1.2.3.4'
+      node.default['rsyslog']['server_name'] = '1.2.3.4'
     end.converge described_recipe
   end
 
@@ -23,7 +23,7 @@ describe 'rsyslog::default' do
   describe 'disables syslog service when below version 6 on rhel' do
     let(:disable_syslog) { true }
 
-    it { should stop_service 'syslog' }
-    it { should disable_service 'syslog' }
+    it { should_not start_service 'syslog' }
+    it { should_not enable_service 'syslog' }
   end
 end

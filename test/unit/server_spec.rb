@@ -4,8 +4,8 @@ describe 'rsyslog::server' do
   let(:sysconfig_file) { '/etc/sysconfig/rsyslog' }
 
  subject(:chef_run) do
-    ChefSpec::Runner.new do |node|
-      node.set[:rsyslog][:server_name] = '1.2.3.4'
+    ChefSpec::SoloRunner.new(platform: 'centos', version: '6.8') do |node|
+      node.default['rsyslog']['server_name'] = '1.2.3.4'
     end.converge described_recipe
   end
 
